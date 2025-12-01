@@ -19,5 +19,6 @@ public class BookStoreTests extends TestBase {
         new LoginPage(driver).enterUserData("Kris","Kk1234567$")
                 .clickOnLoginButton()
                 .verifyUserName("Kris");
+
     }
 }
