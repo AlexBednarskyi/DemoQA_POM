@@ -41,5 +41,27 @@ WebElement confirmButton;
         Assertions.assertTrue(isContains(text, confirmResult));
         return this;
     }
+    @FindBy(id = "promtButton")
+    WebElement promtButton;
+    public AlertsPage clickOnPromtButton() {
+        clickWithJS(promtButton,0,300);
+        return this;
+    }
 
+    public AlertsPage sendMessageToAlert(String text) {
+        if(text !=null){
+            driver.switchTo().alert().sendKeys(text);
+            driver.switchTo().alert().accept();
+            //driver.switchTo().alert().getText();
+
+        }
+        return this;
+    }
+    @FindBy(id = "promptResult")
+    WebElement promptResult;
+    public AlertsPage verifyMessage(String text) {
+        Assertions.assertTrue(isContains(text,promptResult));
+
+        return this;
+    }
 }
