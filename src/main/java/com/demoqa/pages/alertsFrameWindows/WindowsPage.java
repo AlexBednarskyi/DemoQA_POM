@@ -1,23 +1,24 @@
 package com.demoqa.pages.alertsFrameWindows;
 
 import com.demoqa.core.BasePage;
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class WindowsPage extends BasePage {
+
     public WindowsPage(WebDriver driver) {
         super(driver);
     }
-@FindBy(id = "tabButton")
-    WebElement tabButton;
-    public WindowsPage clickOnNewTabButton() {
-        clickWithJS(tabButton,0,200);
 
+    @FindBy(id = "tabButton")
+    WebElement tabButton;
+
+    @FindBy(id = "sampleHeading")
+    WebElement sampleHeading;
+
+    public WindowsPage clickOnNewTabButton() {
+        clickWithJS(tabButton, 0, 200);
         return this;
     }
 
@@ -26,14 +27,7 @@ public class WindowsPage extends BasePage {
         return this;
     }
 
-
-
-    @FindBy(id = "sampleHeading")
-WebElement sampleHeading;
-    public WindowsPage verifyNewTabTitle(String title) {
-        Assertions.assertTrue(shouldHaveText(sampleHeading,title,5));
-
-        return this;
+    public String getNewTabTitleText() {
+        return sampleHeading.getText();
     }
-
 }
